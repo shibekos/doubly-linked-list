@@ -37,11 +37,18 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-       var node = new Node(data);
-       if(this.nodes[index-1])this.nodes[index-1].appendChild(node);
-       this.nodes.splice(index,0,node);
+       var node = this.nodeAt(index);
+       assert(node, '`insertAt`: Index out-of-bounds.');
+       var previous = node.previous;
+        var newNode = {
+        value: value,
+        next: node,
+        previous: previous
+       };
+       node.previous = newNode;
+       previous.next = newNode;
+
        this.length++;
-       return this;
     }
 
     isEmpty() {
