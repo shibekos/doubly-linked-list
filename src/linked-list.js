@@ -9,20 +9,19 @@ class LinkedList {
     }
 
     append(data) {
-     var node = new Node(data);
-
-    if (this._length) {
+       var node = new Node(data);
+       if (this._length) {
         this.tail.next = node;
         node.previous = this.tail;
         this.tail = node;
-    } else {
+        } else {
         this.head = node;
         this.tail = node;
-    }
+        }
 
-    this._length++;
+       this._length++;
 
-    return node;
+        return node;
    };
 
     head() {
@@ -46,7 +45,7 @@ class LinkedList {
     }
 
     isEmpty() {
-      return this.length === 0;
+       return this.length === 0;
     }
 
     clear() {
@@ -70,8 +69,8 @@ class LinkedList {
     {
       prev = length - 1 - next;
       var temporary = array[prev];
-       array[next] = array[prev];
-       array[prev] = temporary;
+      array[next] = array[prev];
+      array[prev] = temporary;
     }
       return array;
     }
@@ -81,8 +80,8 @@ class LinkedList {
       var indexOfFindedNode = -1;
       var searchedNode;
       this.nodes.forEach(function(item){
-         if(item.data === data){
-            searchedNode = item;
+      if(item.data === data){
+        searchedNode = item;
          }
       });
       indexOfFindedNode = this.nodes.indexOf(searchedNode);
