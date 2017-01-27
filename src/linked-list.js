@@ -77,7 +77,7 @@ class LinkedList {
     }
 
     indexOf(data) {
-      if(this.length == 0) return;
+      if(this.length === 0) return;
       var indexOfFindedNode = -1;
       var searchedNode;
       this.nodes.forEach(function(item){
