@@ -69,17 +69,8 @@ class LinkedList {
     }
 
     reverse(array) {
-      var next = null;
-      var prev = null;
-      var length = array.length;
-      for (next = 0; next < length / 2; next += 1)
-    {
-      prev = length - 1 - next;
-      var temporary = array[prev];
-      array[next] = array[prev];
-      array[prev] = temporary;
-    }
-      return array;
+       this.nodes.reverse();
+       return this;
     }
 
     indexOf(data) {
