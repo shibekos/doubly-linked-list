@@ -9,81 +9,57 @@ class LinkedList {
     }
 
     append(data) {
-       var node = new Node(data);
-       if (this._length) {
-        this.tail.next = node;
-        node.previous = this.tail;
-        this.tail = node;
-        } else {
-        this.head = node;
-        this.tail = node;
-        }
-
-       this._length++;
-
-        return node;
-   };
-
-    head() {
-      return data._head;
+        this.list.push(new Node(data));
+        this.length = this.list.length;
+        return this;
     }
 
-    tail(){
-      return data._tail;
+    head() {
+        return this.list.length > 0 ? this.list[0].data : null;
+    }
+
+    tail() {
+        return this.list.length > 0 ? this.list[this.list.length-1].data : null;
     }
 
     at(index) {
-      return this.nodes.data;
+        return this.list[index].data;
     }
 
     insertAt(index, data) {
-       var node = this.nodeAt(index);
-       assert(node, '`insertAt`: Index out-of-bounds.');
-       var previous = node.previous;
-        var newNode = {
-        value: value,
-        next: node,
-        previous: previous
-       };
-       node.previous = newNode;
-       previous.next = newNode;
-
-       this.length++;
+        this.list.splice(index, 0, new Node(data));
+        this.length = this.list.length;
+        return this;
     }
 
     isEmpty() {
-       return this.length === 0;
+        return !this.list.length;
     }
 
     clear() {
-      this.length = 0;
-      this._head = null;
-      this._tail = null;
-      this.nodes = [];
-      return this;
+        this.list.length = 0;
+        this.length = 0;
+        return this;
     }
 
     deleteAt(index) {
-      this.nodes[index].remove();
-      return this;
+        this.list.splice(index, 1);
+        this.length = this.list.length;
+        return this;
     }
 
-    reverse(array) {
-       this.nodes.reverse();
-       return this;
+    reverse() {
+        this.list.reverse();
+        return this;
     }
 
     indexOf(data) {
-      if(this.length === 0) return;
-      var indexOfFindedNode = -1;
-      var searchedNode;
-      this.nodes.forEach(function(item){
-      if(item.data === data){
-        searchedNode = item;
-         }
-      });
-      indexOfFindedNode = this.nodes.indexOf(searchedNode);
-      return indexOfFindedNode;
+        for(var i = 0; i < this.list.length; i++) {
+            if (this.list[i].data === data) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
 
