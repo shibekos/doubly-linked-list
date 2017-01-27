@@ -2,64 +2,88 @@ const Node = require('./node');
 
 class LinkedList {
     constructor() {
-        this.list = [];
-        this.length = 0;
-        this._head = new Node();
-        this._tail = new Node();
+      this.length = 0;
+      this._tail = null;
+      this._head = null;
+      this.nodes = [];
     }
 
     append(data) {
-        this.list.push(new Node(data));
-        this.length = this.list.length;
-        return this;
-    }
+       var node = new Node(data);
+       if (this._length) {
+        this.tail.next = node;
+        node.previous = this.tail;
+        this.tail = node;
+        } else {
+        this.head = node;
+        this.tail = node;
+        }
+
+       this._length++;
+
+        return node;
+   };
 
     head() {
-        return this.list.length > 0 ? this.list[0].data : null;
+      return data._head;
     }
 
-    tail() {
-        return this.list.length > 0 ? this.list[this.list.length-1].data : null;
+    tail(){
+      return data._tail;
     }
 
     at(index) {
-        return this.list[index].data;
+      return this.nodes.data;
     }
 
     insertAt(index, data) {
-        this.list.splice(index, 0, new Node(data));
-        this.length = this.list.length;
-        return this;
+       var node = this.nodeAt(index);
+       assert(node, '`insertAt`: Index out-of-bounds.');
+       var previous = node.previous;
+        var newNode = {
+        value: value,
+        next: node,
+        previous: previous
+       };
+       node.previous = newNode;
+       previous.next = newNode;
+
+       this.length++;
     }
 
     isEmpty() {
-        return !this.list.length;
+       return this.length === 0;
     }
 
     clear() {
-        this.list.length = 0;
-        this.length = 0;
-        return this;
+      this.length = 0;
+      this._head = null;
+      this._tail = null;
+      this.nodes = [];
+      return this;
     }
 
     deleteAt(index) {
-        this.list.splice(index, 1);
-        this.length = this.list.length;
-        return this;
+      this.nodes[index].remove();
+      return this;
     }
 
-    reverse() {
-        this.list.reverse();
-        return this;
+    reverse(array) {
+      this.nodes.reverse();
+       return this;
     }
 
     indexOf(data) {
-        for(var i = 0; i < this.list.length; i++) {
-            if (this.list[i].data === data) {
-                return i;
-            }
-        }
-        return -1;
+      if(this.length === 0) return;
+      var indexOfFindedNode = -1;
+      var searchedNode;
+      this.nodes.forEach(function(item){
+      if(item.data === data){
+        searchedNode = item;
+         }
+      });
+      indexOfFindedNode = this.nodes.indexOf(searchedNode);
+      return indexOfFindedNode;
     }
 }
 
