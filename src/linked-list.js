@@ -51,8 +51,8 @@ class LinkedList {
 
     clear() {
       this.length = 0;
-      this._head = null;
-      this._tail = null;
+      this._head.data = null;
+      this._tail.data = null;
       this.nodes = [];
       return this;
     }
