@@ -72,7 +72,17 @@ class LinkedList {
     }
 
     indexOf(data) {
-
+     var count = 0;
+     var currentElem = this._head;
+      while (count < this.length){
+       if (currentElem.data == data ) {
+           return count;
+        }
+         currentElem = currentElem.next;
+         count++;
+        }
+        return -1;
+    }
 }
 
 module.exports = LinkedList;
