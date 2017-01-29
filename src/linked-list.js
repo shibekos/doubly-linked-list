@@ -15,12 +15,6 @@ class LinkedList {
         this._tail = node;
         this._head = node;
       }
-      if(this.head){
-        this._tail.prev = node;
-        node.prev = this._tail.prev;
-        node.next = this._tail;
-        this._tail = node;
-      }
       this.length++;
       return this;
     }
