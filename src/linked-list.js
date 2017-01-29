@@ -33,7 +33,11 @@ class LinkedList {
     }
 
     at(index) {
-      return this.nodes.data;
+    	if (this._index != null) {
+    		return this._index.data;
+    	} else {
+    		return null;
+    	}
     }
 
     insertAt(index, data) {
