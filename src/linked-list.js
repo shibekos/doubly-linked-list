@@ -58,13 +58,20 @@ class LinkedList {
     }
 
     deleteAt(index) {
-      this.nodes[index].remove();
-      return this;
+      var currentNode = this._head;
+       var count = 0;
+        while (count < index){
+         currentNode = currentNode.next;
+         count++;
+        }
+        currentNode.prev.next = currentNode.next;
+        currentNode.next.prev = currentNode.prev;
     }
+   
 
     reverse(array) {
       this.nodes.reverse();
-       return this;
+      return this;
     }
 
     indexOf(data) {
