@@ -10,13 +10,13 @@ class LinkedList {
 
     append(data) {
     	var node = new Node(data);
-      this.nodes.push(node);
-      if(!this._tail && !this._head){
+        this.nodes.push(node);
+        if(!this._tail && !this._head){
         this._tail = node;
         this._head = node;
       }
-      this.length++;
-      return this;
+        this.length++;
+        return this;
     }
 
  
