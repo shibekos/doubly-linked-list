@@ -2,10 +2,10 @@ const Node = require('./node');
 
 class LinkedList {
     constructor() {
-      this.nodes = [];
-      this.length = 0;
-      this._tail = null;
-      this._head = null;
+       this.nodes = [];
+       this.length = 0;
+       this._tail = null;
+       this._head = null;
     }
 
     append(data) {
@@ -20,7 +20,7 @@ class LinkedList {
     }
 
     head() {
-      if (this._head != null) {
+        if (this._head != null) {
         return this._head.data;
         } else {
           return null;
@@ -28,7 +28,7 @@ class LinkedList {
     }
    
     tail(){
-       if (this._tail != null) {
+        if (this._tail != null) {
           return this._head.data;
         } else {
             return null;
@@ -36,7 +36,7 @@ class LinkedList {
     }
 
     at(index) {
-    	if (this._index != null) {
+    	 if (this._index != null) {
     		return this._index.data;
     	} else {
     		return null;
@@ -44,7 +44,7 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-       this.nodes.splice(index, 0, new Node(data));
+        this.nodes.splice(index, 0, new Node(data));
        return this;
     }
 
@@ -53,36 +53,26 @@ class LinkedList {
     }
 
     clear() {
-      this.nodes = [];
-      this.length = 0;
-      this._head = null;
-      this._tail = null;
-      return this;
+       this.nodes = [];
+       this.length = 0;
+       this._head = null;
+       this._tail = null;
+       return this;
     }
 
     deleteAt(index) {
-      this.nodes.splice(index, 1);
-      this.length = this.nodes.length;
-      return this;
+       this.nodes.splice(index, 1);
+       this.length = this.nodes.length;
+       return this;
     }
 
     reverse(array) {
-      this.nodes.reverse();
-      return this;
+       this.nodes.reverse();
+       return this;
     }
 
     indexOf(data) {
-     var count = 0;
-     var currentElem = this._head;
-      while (count < this.length){
-       if (currentElem.data == data ) {
-           return count;
-        }
-         currentElem = currentElem.next;
-         count++;
-        }
-        return -1;
-    }
+
 }
 
 module.exports = LinkedList;
