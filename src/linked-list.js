@@ -59,10 +59,11 @@ class LinkedList {
     }
 
     deleteAt(index) {
-      this.nodes[index].remove();
+      this.list.splice(index, 1);
+      this.length = this.list.length;
       return this;
     }
-
+    
     reverse(array) {
       this.nodes.reverse();
       return this;
