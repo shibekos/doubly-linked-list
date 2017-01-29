@@ -46,8 +46,7 @@ class LinkedList {
     }
 
     isEmpty() {
-      if (this.length > 0) return false;
-      else return true;
+     return this.length == 0;
     }
 
     clear() {
@@ -63,7 +62,7 @@ class LinkedList {
       this.length = this.list.length;
       return this;
     }
-    
+
     reverse(array) {
       this.nodes.reverse();
       return this;
