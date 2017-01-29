@@ -58,8 +58,8 @@ class LinkedList {
     }
 
     deleteAt(index) {
-      this.list.splice(index, 1);
-      this.length = this.list.length;
+      this.nodes.splice(index, 1);
+      this.length = this.nodes.length;
       return this;
     }
 
