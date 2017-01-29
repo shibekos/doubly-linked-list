@@ -14,14 +14,22 @@ class LinkedList {
       return this;
     }
 
-   };
 
     head() {
-      return data._head;
+      if (this._head != null) {
+            return this._head.data;
+        } else {
+            return null;
+        }
     }
+   
 
     tail(){
-      return data._tail;
+       if (this._tail != null) {
+            return this._head.data;
+        } else {
+            return null;
+        }
     }
 
     at(index) {
@@ -35,7 +43,7 @@ class LinkedList {
     }
 
     isEmpty() {
-       return this.length === 0;
+       return (this.length == 0);
     }
 
     clear() {
@@ -57,16 +65,12 @@ class LinkedList {
     }
 
     indexOf(data) {
-      if(this.length === 0) return;
-      var indexOfFindedNode = -1;
-      var searchedNode;
-      this.nodes.forEach(function(item){
-      if(item.data === data){
-        searchedNode = item;
-         }
-      });
-      indexOfFindedNode = this.nodes.indexOf(searchedNode);
-      return indexOfFindedNode;
+      for(var i = 0; i < this.list.length; i++) {
+            if (this.list[i].data === data) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
 
