@@ -67,27 +67,8 @@ class LinkedList {
     }
 
     reverse(array) {
-     var node_buf = {
-            value: null,
-            next: null,
-            prev: null,
-        }
-
-        var node_head = this._head;
-        var node_tail = this._tail;
-
-        var i = 0;
-
-        while (i < Math.floor(this.length / 2)) { 
-            node_buf.value = node_tail.value;
-            node_tail.value = node_head.value;
-            node_head.value = node_buf.value;
-            node_head = node_head.next;
-            node_tail = node_tail.prev;
-            i++;
-        }
-
-        return this;
+      this.nodes.reverse();
+      return this;
     }
 
     indexOf(data) {
