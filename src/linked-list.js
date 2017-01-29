@@ -68,10 +68,14 @@ class LinkedList {
     }
 
     indexOf(data) {
-      for(var i = 0; i < this.list.length; i++) {
-            if (this.list[i].data === data) {
-                return i;
-            }
+     var count = 0;
+     var currentElem = this._head;
+      while (count < this.length){
+       if (currentElem.data == data ) {
+           return count;
+        }
+         currentElem = currentElem.next;
+         count++;
         }
         return -1;
     }
