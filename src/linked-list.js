@@ -17,16 +17,16 @@ class LinkedList {
 
     head() {
       if (this._head != null) {
-            return this._head.data;
+        return this._head.data;
         } else {
-            return null;
+          return null;
         }
     }
    
 
     tail(){
        if (this._tail != null) {
-            return this._head.data;
+          return this._head.data;
         } else {
             return null;
         }
@@ -41,12 +41,12 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-      this.nodes.splice(index, 0, new Node(data));
-      return this;
+       this.nodes.splice(index, 0, new Node(data));
+       return this;
     }
 
     isEmpty() {
-     return this.length == 0;
+       return this.length == 0;
     }
 
     clear() {
