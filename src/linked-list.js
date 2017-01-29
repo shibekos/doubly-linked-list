@@ -42,7 +42,6 @@ class LinkedList {
 
     insertAt(index, data) {
       this.nodes.splice(index, 0, new Node(data));
-      this.length = this.nodes.length;
       return this;
     }
 
